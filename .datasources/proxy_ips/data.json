@@ -1,0 +1,68 @@
+
+  [
+    {
+      "_id": "1",
+      "ipAddress": "192.168.1.100",
+      "port": 8080,
+      "type": "http",
+      "status": "active",
+      "location": "美国",
+      "speed": "1.2ms",
+      "lastCheck": 1736349000000,
+      "usageCount": 156,
+      "username": "proxy_user1",
+      "password": "encrypted_password_1",
+      "description": "美国HTTP代理服务器",
+      "createdAt": 1731312000000,
+      "updatedAt": 1736349000000
+    },
+    {
+      "_id": "2",
+      "ipAddress": "192.168.1.101",
+      "port": 8080,
+      "type": "https",
+      "status": "inactive",
+      "location": "英国",
+      "speed": "2.5ms",
+      "lastCheck": 1736345400000,
+      "usageCount": 89,
+      "username": "proxy_user2",
+      "password": "encrypted_password_2",
+      "description": "英国HTTPS代理服务器",
+      "createdAt": 1731312000000,
+      "updatedAt": 1736345400000
+    },
+    {
+      "_id": "3",
+      "ipAddress": "192.168.1.102",
+      "port": 1080,
+      "type": "socks5",
+      "status": "error",
+      "location": "日本",
+      "speed": "N/A",
+      "lastCheck": 1736341800000,
+      "usageCount": 0,
+      "username": "proxy_user3",
+      "password": "encrypted_password_3",
+      "description": "日本SOCKS5代理服务器",
+      "createdAt": 1731312000000,
+      "updatedAt": 1736341800000
+    },
+    {
+      "_id": "4",
+      "ipAddress": "10.0.0.50",
+      "port": 3128,
+      "type": "http",
+      "status": "active",
+      "location": "新加坡",
+      "speed": "0.8ms",
+      "lastCheck": 1736349000000,
+      "usageCount": 234,
+      "username": "proxy_user4",
+      "password": "encrypted_password_4",
+      "description": "新加坡HTTP代理服务器",
+      "createdAt": 1731312000000,
+      "updatedAt": 1736349000000
+    }
+  ]
+  

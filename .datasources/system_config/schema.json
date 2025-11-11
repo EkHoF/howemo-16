@@ -1,0 +1,43 @@
+
+  {
+    "name": "system_config",
+    "title": "系统配置",
+    "schemas": [
+      {
+        "name": "configKey",
+        "title": "配置键",
+        "type": "String"
+      },
+      {
+        "name": "configValue",
+        "title": "配置值",
+        "type": "String"
+      },
+      {
+        "name": "configType",
+        "title": "配置类型",
+        "type": "String"
+      },
+      {
+        "name": "description",
+        "title": "描述",
+        "type": "String"
+      },
+      {
+        "name": "category",
+        "title": "分类",
+        "type": "String"
+      },
+      {
+        "name": "isEditable",
+        "title": "是否可编辑",
+        "type": "Boolean"
+      },
+      {
+        "name": "updatedBy",
+        "title": "更新人",
+        "type": "String"
+      }
+    ]
+  }
+  

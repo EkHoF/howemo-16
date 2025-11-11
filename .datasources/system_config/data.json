@@ -1,0 +1,100 @@
+
+  [
+    {
+      "_id": "1",
+      "configKey": "system_name",
+      "configValue": "账号管理系统",
+      "configType": "string",
+      "description": "系统名称",
+      "category": "basic",
+      "isEditable": true,
+      "updatedBy": "admin",
+      "createdAt": 1731312000000,
+      "updatedAt": 1736349000000
+    },
+    {
+      "_id": "2",
+      "configKey": "version",
+      "configValue": "1.0.0",
+      "configType": "string",
+      "description": "系统版本",
+      "category": "basic",
+      "isEditable": false,
+      "updatedBy": "system",
+      "createdAt": 1731312000000,
+      "updatedAt": 1731312000000
+    },
+    {
+      "_id": "3",
+      "configKey": "maintenance",
+      "configValue": "false",
+      "configType": "boolean",
+      "description": "维护模式",
+      "category": "system",
+      "isEditable": true,
+      "updatedBy": "admin",
+      "createdAt": 1731312000000,
+      "updatedAt": 1736349000000
+    },
+    {
+      "_id": "4",
+      "configKey": "debug_mode",
+      "configValue": "false",
+      "configType": "boolean",
+      "description": "调试模式",
+      "category": "system",
+      "isEditable": true,
+      "updatedBy": "admin",
+      "createdAt": 1731312000000,
+      "updatedAt": 1736349000000
+    },
+    {
+      "_id": "5",
+      "configKey": "max_file_size",
+      "configValue": "10MB",
+      "configType": "string",
+      "description": "最大文件大小",
+      "category": "upload",
+      "isEditable": true,
+      "updatedBy": "admin",
+      "createdAt": 1731312000000,
+      "updatedAt": 1736349000000
+    },
+    {
+      "_id": "6",
+      "configKey": "session_timeout",
+      "configValue": "30min",
+      "configType": "string",
+      "description": "会话超时时间",
+      "category": "security",
+      "isEditable": true,
+      "updatedBy": "admin",
+      "createdAt": 1731312000000,
+      "updatedAt": 1736349000000
+    },
+    {
+      "_id": "7",
+      "configKey": "max_login_attempts",
+      "configValue": "5",
+      "configType": "number",
+      "description": "最大登录尝试次数",
+      "category": "security",
+      "isEditable": true,
+      "updatedBy": "admin",
+      "createdAt": 1731312000000,
+      "updatedAt": 1736349000000
+    },
+    {
+      "_id": "8",
+      "configKey": "ip_block_duration",
+      "configValue": "3600",
+      "configType": "number",
+      "description": "IP阻止持续时间（秒）",
+      "category": "security",
+      "isEditable": true,
+      "updatedBy": "admin",
+      "createdAt": 1731312000000,
+      "updatedAt": 1736349000000
+    }
+  ]
+  

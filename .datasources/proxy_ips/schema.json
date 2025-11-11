@@ -1,0 +1,64 @@
+
+  {
+    "name": "proxy_ips",
+    "title": "代理IP管理",
+    "schemas": [
+      {
+        "name": "ipAddress",
+        "title": "IP地址",
+        "type": "String"
+      },
+      {
+        "name": "port",
+        "title": "端口",
+        "type": "Number"
+      },
+      {
+        "name": "type",
+        "title": "代理类型",
+        "type": "String"
+      },
+      {
+        "name": "status",
+        "title": "状态",
+        "type": "String"
+      },
+      {
+        "name": "location",
+        "title": "位置",
+        "type": "String"
+      },
+      {
+        "name": "speed",
+        "title": "响应速度",
+        "type": "String"
+      },
+      {
+        "name": "lastCheck",
+        "title": "最后检查时间",
+        "type": "DateTime",
+        "format": "timestamp-ms"
+      },
+      {
+        "name": "usageCount",
+        "title": "使用次数",
+        "type": "Number"
+      },
+      {
+        "name": "username",
+        "title": "用户名",
+        "type": "String"
+      },
+      {
+        "name": "password",
+        "title": "密码",
+        "type": "String"
+      },
+      {
+        "name": "description",
+        "title": "描述",
+        "type": "String"
+      }
+    ]
+  }
+  

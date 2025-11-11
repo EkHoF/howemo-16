@@ -1,0 +1,54 @@
+
+  {
+    "name": "system_logs",
+    "title": "系统日志",
+    "schemas": [
+      {
+        "name": "level",
+        "title": "日志级别",
+        "type": "String"
+      },
+      {
+        "name": "message",
+        "title": "日志消息",
+        "type": "String"
+      },
+      {
+        "name": "timestamp",
+        "title": "时间戳",
+        "type": "DateTime",
+        "format": "timestamp-ms"
+      },
+      {
+        "name": "user",
+        "title": "用户",
+        "type": "String"
+      },
+      {
+        "name": "module",
+        "title": "模块",
+        "type": "String"
+      },
+      {
+        "name": "action",
+        "title": "操作",
+        "type": "String"
+      },
+      {
+        "name": "ipAddress",
+        "title": "IP地址",
+        "type": "String"
+      },
+      {
+        "name": "userAgent",
+        "title": "用户代理",
+        "type": "String"
+      },
+      {
+        "name": "details",
+        "title": "详细信息",
+        "type": "Object"
+      }
+    ]
+  }
+  

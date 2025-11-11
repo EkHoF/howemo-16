@@ -1,0 +1,90 @@
+
+  [
+    {
+      "_id": "1",
+      "level": "info",
+      "message": "系统启动成功",
+      "timestamp": 1736349000000,
+      "user": "system",
+      "module": "system",
+      "action": "startup",
+      "ipAddress": "127.0.0.1",
+      "userAgent": "System",
+      "details": {
+        "version": "1.0.0",
+        "uptime": 0
+      },
+      "createdAt": 1736349000000,
+      "updatedAt": 1736349000000
+    },
+    {
+      "_id": "2",
+      "level": "warning",
+      "message": "内存使用率较高",
+      "timestamp": 1736345400000,
+      "user": "system",
+      "module": "monitor",
+      "action": "alert",
+      "ipAddress": "127.0.0.1",
+      "userAgent": "System",
+      "details": {
+        "memoryUsage": "85%",
+        "threshold": "80%"
+      },
+      "createdAt": 1736345400000,
+      "updatedAt": 1736345400000
+    },
+    {
+      "_id": "3",
+      "level": "error",
+      "message": "数据库连接失败",
+      "timestamp": 1736341800000,
+      "user": "admin",
+      "module": "database",
+      "action": "connection",
+      "ipAddress": "192.168.1.100",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+      "details": {
+        "error": "Connection timeout",
+        "retryCount": 3
+      },
+      "createdAt": 1736341800000,
+      "updatedAt": 1736341800000
+    },
+    {
+      "_id": "4",
+      "level": "info",
+      "message": "用户登录成功",
+      "timestamp": 1736347200000,
+      "user": "user1",
+      "module": "auth",
+      "action": "login",
+      "ipAddress": "10.0.0.50",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
+      "details": {
+        "loginTime": "2024-01-10 10:00:00",
+        "sessionId": "sess_123456"
+      },
+      "createdAt": 1736347200000,
+      "updatedAt": 1736347200000
+    },
+    {
+      "_id": "5",
+      "level": "warning",
+      "message": "代理IP连接异常",
+      "timestamp": 1736343600000,
+      "user": "system",
+      "module": "proxy",
+      "action": "health_check",
+      "ipAddress": "127.0.0.1",
+      "userAgent": "System",
+      "details": {
+        "proxyId": "3",
+        "proxyIp": "192.168.1.102",
+        "error": "Connection refused"
+      },
+      "createdAt": 1736343600000,
+      "updatedAt": 1736343600000
+    }
+  ]
+  
