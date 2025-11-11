@@ -2,22 +2,17 @@
 // 云函数：记录退出登录
 // 功能：记录用户退出登录事件，用于安全审计
 
-const tcb = require('@cloudbase/node-sdk');
-
 exports.main = async (event, context) => {
   try {
-    // 初始化云开发
-    const app = tcb.init({
-      env: context.TCB_ENV
-    });
-    
-    const db = app.database();
+    // 使用原生云开发API
+    const db = cloud.database();
     
     // 获取客户端信息
     const clientIP = event.clientIP || 
                      context.clientIP || 
                      event.headers?.['x-forwarded-for']?.split(',')[0] || 
                      event.headers?.['x-real-ip'] || 
+                     event.headers?.['x-client-ip'] ||
                      '127.0.0.1';
     
     const timestamp = event.timestamp || Date.now();
