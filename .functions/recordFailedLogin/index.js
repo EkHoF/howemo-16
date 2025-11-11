@@ -17,15 +17,18 @@ exports.main = async (event, context) => {
     const MAX_FAILED_ATTEMPTS = 5; // 最大失败次数
     const LOCK_TIME_MINUTES = 15; // 锁定时间（分钟）
     
-    // 获取客户端IP
+    // 获取客户端IP（优先使用传入的IP，否则从请求头获取）
     const clientIP = event.clientIP || 
                      context.clientIP || 
                      event.headers?.['x-forwarded-for']?.split(',')[0] || 
                      event.headers?.['x-real-ip'] || 
+                     event.requestContext?.clientIP ||
                      '127.0.0.1';
     
     const username = event.username || 'unknown';
     const timestamp = event.timestamp || Date.now();
+    
+    console.log(`记录登录失败 - IP: ${clientIP}, 用户名: ${username}, 时间戳: ${timestamp}`);
     
     // 查询该IP的现有记录
     const existingRecord = await db.collection('ip_login_attempts')
@@ -43,10 +46,13 @@ exports.main = async (event, context) => {
       const record = existingRecord.data[0];
       newFailedCount = (record.failed_count || 0) + 1;
       
+      console.log(`IP ${clientIP} 当前失败次数: ${record.failed_count || 0}, 新失败次数: ${newFailedCount}`);
+      
       // 检查是否需要锁定
       if (newFailedCount >= MAX_FAILED_ATTEMPTS) {
         lockUntil = timestamp + LOCK_TIME_MINUTES * 60 * 1000;
         isLocked = true;
+        console.log(`IP ${clientIP} 达到最大失败次数，锁定至: ${new Date(lockUntil).toLocaleString()}`);
       }
       
       // 更新记录
@@ -68,6 +74,8 @@ exports.main = async (event, context) => {
         lockUntil = timestamp + LOCK_TIME_MINUTES * 60 * 1000;
         isLocked = true;
       }
+      
+      console.log(`IP ${clientIP} 创建新记录，失败次数: ${newFailedCount}`);
       
       await db.collection('ip_login_attempts')
         .add({
@@ -93,6 +101,8 @@ exports.main = async (event, context) => {
         user_agent: event.userAgent || context.userAgent || 'unknown',
         created_at: timestamp
       });
+    
+    console.log(`登录失败记录完成 - IP: ${clientIP}, 失败次数: ${newFailedCount}, 是否锁定: ${isLocked}`);
     
     return {
       success: true,

@@ -22,6 +22,7 @@ export default function LoginPage(props) {
   const [isIPLocked, setIsIPLocked] = useState(false);
   const [lockTimeRemaining, setLockTimeRemaining] = useState(0);
   const [failedAttempts, setFailedAttempts] = useState(0);
+  const [clientIP, setClientIP] = useState('');
 
   // 登录限制配置
   const MAX_FAILED_ATTEMPTS = 5; // 最大失败次数
@@ -47,6 +48,7 @@ export default function LoginPage(props) {
     localStorage.removeItem('loginTime');
     localStorage.removeItem('selectedLanguage');
     localStorage.removeItem('login_attempts_backup');
+    localStorage.removeItem('clientIP');
 
     // 清除sessionStorage
     sessionStorage.clear();
@@ -60,12 +62,30 @@ export default function LoginPage(props) {
     });
   };
 
+  // 获取客户端IP（通过云函数获取真实IP）
+  const getClientIP = async () => {
+    try {
+      const response = await $w.cloud.callFunction({
+        name: 'getClientIP',
+        data: {}
+      });
+      return response.result?.ip || '127.0.0.1';
+    } catch (error) {
+      console.error('获取客户端IP失败:', error);
+      return '127.0.0.1';
+    }
+  };
+
   // 从后端获取客户端IP和登录状态
   const getLoginStatusFromBackend = async () => {
     try {
+      const ip = await getClientIP();
+      setClientIP(ip);
       const response = await $w.cloud.callFunction({
         name: 'checkLoginStatus',
-        data: {}
+        data: {
+          clientIP: ip
+        }
       });
       return response.result;
     } catch (error) {
@@ -75,7 +95,7 @@ export default function LoginPage(props) {
         isLocked: false,
         lockTimeRemaining: 0,
         failedAttempts: 0,
-        clientIP: '127.0.0.1'
+        clientIP: clientIP || '127.0.0.1'
       };
     }
   };
@@ -83,11 +103,13 @@ export default function LoginPage(props) {
   // 记录登录失败到后端
   const recordFailedLoginToBackend = async username => {
     try {
+      const ip = await getClientIP();
       const response = await $w.cloud.callFunction({
         name: 'recordFailedLogin',
         data: {
           username: username,
-          timestamp: Date.now()
+          timestamp: Date.now(),
+          clientIP: ip
         }
       });
       return response.result;
@@ -108,9 +130,12 @@ export default function LoginPage(props) {
   // 重置登录失败记录到后端
   const resetFailedLoginToBackend = async () => {
     try {
+      const ip = await getClientIP();
       const response = await $w.cloud.callFunction({
         name: 'resetFailedLogin',
-        data: {}
+        data: {
+          clientIP: ip
+        }
       });
       return response.result;
     } catch (error) {
@@ -356,6 +381,7 @@ export default function LoginPage(props) {
         localStorage.setItem('userRole', user.role);
         localStorage.setItem('loginTime', loginTime.toString());
         localStorage.setItem('selectedLanguage', selectedLanguage);
+        localStorage.setItem('clientIP', clientIP);
         toast({
           title: getText('loginSuccess'),
           description: `${getText('welcomeBack')}, ${formData.username}!`

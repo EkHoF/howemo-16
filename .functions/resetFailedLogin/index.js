@@ -13,14 +13,17 @@ exports.main = async (event, context) => {
     
     const db = app.database();
     
-    // 获取客户端IP
+    // 获取客户端IP（优先使用传入的IP，否则从请求头获取）
     const clientIP = event.clientIP || 
                      context.clientIP || 
                      event.headers?.['x-forwarded-for']?.split(',')[0] || 
                      event.headers?.['x-real-ip'] || 
+                     event.requestContext?.clientIP ||
                      '127.0.0.1';
     
     const timestamp = Date.now();
+    
+    console.log(`重置登录失败记录 - IP: ${clientIP}, 时间戳: ${timestamp}`);
     
     // 重置该IP的失败计数
     const updateResult = await db.collection('ip_login_attempts')
@@ -34,6 +37,8 @@ exports.main = async (event, context) => {
         reset_at: timestamp,
         updated_at: timestamp
       });
+    
+    console.log(`IP ${clientIP} 重置结果:`, updateResult);
     
     // 记录安全日志
     await db.collection('security_logs')
