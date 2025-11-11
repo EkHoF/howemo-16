@@ -1,0 +1,84 @@
+
+  [
+    {
+      "_id": "1",
+      "date": "2025-01-07",
+      "timeRange": "7d",
+      "totalAccounts": 1250,
+      "activeAccounts": 890,
+      "todayTasks": 156,
+      "successTasks": 142,
+      "riskTriggers": 8,
+      "todayPayments": 2450.00,
+      "activityTrend": [
+        {
+          "date": "01-01",
+          "active": 120,
+          "new": 15
+        },
+        {
+          "date": "01-02",
+          "active": 135,
+          "new": 18
+        },
+        {
+          "date": "01-03",
+          "active": 125,
+          "new": 12
+        },
+        {
+          "date": "01-04",
+          "active": 145,
+          "new": 22
+        },
+        {
+          "date": "01-05",
+          "active": 160,
+          "new": 25
+        },
+        {
+          "date": "01-06",
+          "active": 155,
+          "new": 20
+        },
+        {
+          "date": "01-07",
+          "active": 170,
+          "new": 28
+        }
+      ],
+      "taskEfficiency": [
+        {
+          "name": "已完成",
+          "value": 142,
+          "color": "#10b981"
+        },
+        {
+          "name": "失败",
+          "value": 14,
+          "color": "#ef4444"
+        }
+      ],
+      "topRiskTriggers": [
+        {
+          "rule": "IP Change Frequent",
+          "count": 3
+        },
+        {
+          "rule": "Device Change",
+          "count": 2
+        },
+        {
+          "rule": "Unusual Login",
+          "count": 2
+        },
+        {
+          "rule": "Task Failure",
+          "count": 1
+        }
+      ],
+      "createdAt": 1731312000000,
+      "updatedAt": 1731312000000
+    }
+  ]
+  

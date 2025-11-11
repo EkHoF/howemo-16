@@ -1,0 +1,50 @@
+
+  {
+    "name": "risk_triggers",
+    "title": "风控触发记录",
+    "schemas": [
+      {
+        "name": "account",
+        "title": "关联账号",
+        "type": "String"
+      },
+      {
+        "name": "rule",
+        "title": "触发规则",
+        "type": "String"
+      },
+      {
+        "name": "triggerTime",
+        "title": "触发时间",
+        "type": "DateTime",
+        "format": "timestamp-ms"
+      },
+      {
+        "name": "triggerReason",
+        "title": "触发原因",
+        "type": "Object"
+      },
+      {
+        "name": "action",
+        "title": "执行动作",
+        "type": "String"
+      },
+      {
+        "name": "status",
+        "title": "处理状态",
+        "type": "String"
+      },
+      {
+        "name": "operator",
+        "title": "操作员",
+        "type": "String"
+      },
+      {
+        "name": "handleTime",
+        "title": "处理时间",
+        "type": "DateTime",
+        "format": "timestamp-ms"
+      }
+    ]
+  }
+  

@@ -1,0 +1,65 @@
+
+  {
+    "name": "nurturing_tasks",
+    "title": "养号任务",
+    "schemas": [
+      {
+        "name": "account",
+        "title": "关联账号",
+        "type": "String"
+      },
+      {
+        "name": "platform",
+        "title": "平台",
+        "type": "String"
+      },
+      {
+        "name": "taskType",
+        "title": "任务类型",
+        "type": "String"
+      },
+      {
+        "name": "taskContent",
+        "title": "任务内容",
+        "type": "MultiLineString"
+      },
+      {
+        "name": "scheduledTime",
+        "title": "计划执行时间",
+        "type": "DateTime",
+        "format": "timestamp-ms"
+      },
+      {
+        "name": "status",
+        "title": "任务状态",
+        "type": "String"
+      },
+      {
+        "name": "device",
+        "title": "执行设备",
+        "type": "String"
+      },
+      {
+        "name": "ip",
+        "title": "IP地址",
+        "type": "String"
+      },
+      {
+        "name": "retryCount",
+        "title": "重试次数",
+        "type": "Number"
+      },
+      {
+        "name": "executedTime",
+        "title": "实际执行时间",
+        "type": "DateTime",
+        "format": "timestamp-ms"
+      },
+      {
+        "name": "errorMessage",
+        "title": "错误信息",
+        "type": "String"
+      }
+    ]
+  }
+  

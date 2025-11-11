@@ -1,0 +1,70 @@
+
+  [
+    {
+      "_id": "1",
+      "jobId": "1",
+      "jobCode": "CLEANUP_LOGS",
+      "executeTime": 1736349000000,
+      "executeDuration": 15000,
+      "executeStatus": "success",
+      "retryCount": 0,
+      "errorMsg": null,
+      "executeResult": {
+        "processedRecords": 1000,
+        "deletedRecords": 500
+      },
+      "executeNode": "node-01",
+      "createdAt": 1736349000000,
+      "updatedAt": 1736349000000
+    },
+    {
+      "_id": "2",
+      "jobId": "2",
+      "jobCode": "SYNC_ACCOUNTS",
+      "executeTime": 1736347200000,
+      "executeDuration": 30000,
+      "executeStatus": "failed",
+      "retryCount": 2,
+      "errorMsg": "Connection timeout to external API",
+      "executeResult": null,
+      "executeNode": "node-02",
+      "createdAt": 1736347200000,
+      "updatedAt": 1736347200000
+    },
+    {
+      "_id": "3",
+      "jobId": "1",
+      "jobCode": "CLEANUP_LOGS",
+      "executeTime": 1736265600000,
+      "executeDuration": 12000,
+      "executeStatus": "success",
+      "retryCount": 0,
+      "errorMsg": null,
+      "executeResult": {
+        "processedRecords": 800,
+        "deletedRecords": 300
+      },
+      "executeNode": "node-01",
+      "createdAt": 1736265600000,
+      "updatedAt": 1736265600000
+    },
+    {
+      "_id": "4",
+      "jobId": "3",
+      "jobCode": "GENERATE_REPORT",
+      "executeTime": 1736179200000,
+      "executeDuration": 45000,
+      "executeStatus": "success",
+      "retryCount": 0,
+      "errorMsg": null,
+      "executeResult": {
+        "reportGenerated": true,
+        "emailSent": true,
+        "recipients": ["admin@example.com"]
+      },
+      "executeNode": "node-03",
+      "createdAt": 1736179200000,
+      "updatedAt": 1736179200000
+    }
+  ]
+  

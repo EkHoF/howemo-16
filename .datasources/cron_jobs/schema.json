@@ -1,0 +1,70 @@
+
+  {
+    "name": "cron_jobs",
+    "title": "定时任务",
+    "schemas": [
+      {
+        "name": "jobCode",
+        "title": "任务代码",
+        "type": "String"
+      },
+      {
+        "name": "jobName",
+        "title": "任务名称",
+        "type": "String"
+      },
+      {
+        "name": "cronExpression",
+        "title": "Cron表达式",
+        "type": "String"
+      },
+      {
+        "name": "targetModule",
+        "title": "目标模块",
+        "type": "String"
+      },
+      {
+        "name": "executeClass",
+        "title": "执行类",
+        "type": "String"
+      },
+      {
+        "name": "executeParam",
+        "title": "执行参数",
+        "type": "Object"
+      },
+      {
+        "name": "status",
+        "title": "任务状态",
+        "type": "String"
+      },
+      {
+        "name": "retryCount",
+        "title": "重试次数",
+        "type": "Number"
+      },
+      {
+        "name": "retryInterval",
+        "title": "重试间隔",
+        "type": "Number"
+      },
+      {
+        "name": "lastExecTime",
+        "title": "最后执行时间",
+        "type": "DateTime",
+        "format": "timestamp-ms"
+      },
+      {
+        "name": "nextExecTime",
+        "title": "下次执行时间",
+        "type": "DateTime",
+        "format": "timestamp-ms"
+      },
+      {
+        "name": "createdBy",
+        "title": "创建人",
+        "type": "String"
+      }
+    ]
+  }
+  

@@ -1,0 +1,64 @@
+
+  [
+    {
+      "_id": "1",
+      "jobCode": "CLEANUP_LOGS",
+      "jobName": "清理日志任务",
+      "cronExpression": "0 0 2 * * ?",
+      "targetModule": "system",
+      "executeClass": "LogCleanupJob",
+      "executeParam": {
+        "retentionDays": 30,
+        "batchSize": 1000
+      },
+      "status": "active",
+      "retryCount": 3,
+      "retryInterval": 300,
+      "lastExecTime": 1736349000000,
+      "nextExecTime": 1736425400000,
+      "createdBy": "admin",
+      "createdAt": 1731312000000,
+      "updatedAt": 1736349000000
+    },
+    {
+      "_id": "2",
+      "jobCode": "SYNC_ACCOUNTS",
+      "jobName": "同步账号任务",
+      "cronExpression": "0 */30 * * * ?",
+      "targetModule": "account",
+      "executeClass": "AccountSyncJob",
+      "executeParam": {
+        "syncType": "incremental",
+        "maxRecords": 500
+      },
+      "status": "active",
+      "retryCount": 2,
+      "retryInterval": 600,
+      "lastExecTime": 1736347200000,
+      "nextExecTime": 1736349000000,
+      "createdBy": "admin",
+      "createdAt": 1731312000000,
+      "updatedAt": 1736347200000
+    },
+    {
+      "_id": "3",
+      "jobCode": "GENERATE_REPORT",
+      "jobName": "生成报表任务",
+      "cronExpression": "0 0 8 * * MON",
+      "targetModule": "report",
+      "executeClass": "ReportGenerateJob",
+      "executeParam": {
+        "reportType": "daily",
+        "emailRecipients": ["admin@example.com"]
+      },
+      "status": "inactive",
+      "retryCount": 1,
+      "retryInterval": 1800,
+      "lastExecTime": 1736265600000,
+      "nextExecTime": 1736870400000,
+      "createdBy": "admin",
+      "createdAt": 1731312000000,
+      "updatedAt": 1736265600000
+    }
+  ]
+  

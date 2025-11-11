@@ -1,0 +1,52 @@
+
+  [
+    {
+      "_id": "1",
+      "account": "legal_us_account_001",
+      "rule": "IP Frequent Change",
+      "triggerTime": 1736349000000,
+      "triggerReason": {
+        "ip_change_count": 5,
+        "time_window": 24
+      },
+      "action": "alert",
+      "status": "unhandled",
+      "operator": null,
+      "handleTime": null,
+      "createdAt": 1731312000000,
+      "updatedAt": 1731312000000
+    },
+    {
+      "_id": "2",
+      "account": "uk_business_002",
+      "rule": "Device Change",
+      "triggerTime": 1736345400000,
+      "triggerReason": {
+        "device_change_count": 3,
+        "time_window": 24
+      },
+      "action": "restrict_login",
+      "status": "resolved",
+      "operator": "admin",
+      "handleTime": 1736349000000,
+      "createdAt": 1731312000000,
+      "updatedAt": 1731312000000
+    },
+    {
+      "_id": "3",
+      "account": "jp_creator_003",
+      "rule": "Unusual Login",
+      "triggerTime": 1736343600000,
+      "triggerReason": {
+        "location": "Unknown",
+        "time": "03:00 AM"
+      },
+      "action": "alert",
+      "status": "ignored",
+      "operator": "admin",
+      "handleTime": 1736347200000,
+      "createdAt": 1731312000000,
+      "updatedAt": 1731312000000
+    }
+  ]
+  

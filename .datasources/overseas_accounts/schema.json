@@ -1,0 +1,45 @@
+
+  {
+    "name": "overseas_accounts",
+    "title": "海外账号管理",
+    "schemas": [
+      {
+        "name": "platform",
+        "title": "平台",
+        "type": "String"
+      },
+      {
+        "name": "username",
+        "title": "用户名",
+        "type": "String"
+      },
+      {
+        "name": "device",
+        "title": "设备",
+        "type": "String"
+      },
+      {
+        "name": "country",
+        "title": "国家",
+        "type": "String"
+      },
+      {
+        "name": "registerTime",
+        "title": "注册时间",
+        "type": "DateTime",
+        "format": "timestamp-ms"
+      },
+      {
+        "name": "status",
+        "title": "状态",
+        "type": "String"
+      },
+      {
+        "name": "lastLogin",
+        "title": "最后登录时间",
+        "type": "DateTime",
+        "format": "timestamp-ms"
+      }
+    ]
+  }
+  

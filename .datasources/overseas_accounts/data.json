@@ -1,0 +1,40 @@
+
+  [
+    {
+      "_id": "1",
+      "platform": "Facebook",
+      "username": "legal_us_account_001",
+      "device": "iPhone 15 Pro",
+      "country": "USA",
+      "registerTime": 1735684800000,
+      "status": "active",
+      "lastLogin": 1736349000000,
+      "createdAt": 1731312000000,
+      "updatedAt": 1731312000000
+    },
+    {
+      "_id": "2",
+      "platform": "Twitter",
+      "username": "uk_business_002",
+      "device": "Samsung Galaxy S24",
+      "country": "UK",
+      "registerTime": 1735771200000,
+      "status": "verified",
+      "lastLogin": 1736337700000,
+      "createdAt": 1731312000000,
+      "updatedAt": 1731312000000
+    },
+    {
+      "_id": "3",
+      "platform": "Instagram",
+      "username": "jp_creator_003",
+      "device": "iPhone 14",
+      "country": "Japan",
+      "registerTime": 1735857600000,
+      "status": "restricted",
+      "lastLogin": 1736265600000,
+      "createdAt": 1731312000000,
+      "updatedAt": 1731312000000
+    }
+  ]
+  

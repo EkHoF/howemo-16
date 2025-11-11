@@ -1,0 +1,38 @@
+
+  {
+    "name": "risk_rules",
+    "title": "风控规则",
+    "schemas": [
+      {
+        "name": "ruleCode",
+        "title": "规则代码",
+        "type": "String"
+      },
+      {
+        "name": "ruleName",
+        "title": "规则名称",
+        "type": "String"
+      },
+      {
+        "name": "ruleDesc",
+        "title": "规则描述",
+        "type": "MultiLineString"
+      },
+      {
+        "name": "threshold",
+        "title": "阈值配置",
+        "type": "Object"
+      },
+      {
+        "name": "action",
+        "title": "触发动作",
+        "type": "String"
+      },
+      {
+        "name": "status",
+        "title": "规则状态",
+        "type": "String"
+      }
+    ]
+  }
+  

@@ -1,0 +1,91 @@
+
+  [
+    {
+      "_id": "1",
+      "conversationId": "1",
+      "senderId": "user_001",
+      "senderNickname": "Admin",
+      "receiverTypeId": "2",
+      "receiverId": "external_001",
+      "msgType": "text",
+      "msgContent": "Hello, how are you?",
+      "msgAttachments": [],
+      "sendTime": 1736349000000,
+      "isRead": true,
+      "readTime": 1736349100000,
+      "isRecall": false,
+      "recallTime": null,
+      "deviceId": "device_001",
+      "ipId": "ip_001",
+      "createdAt": 1736349000000,
+      "updatedAt": 1736349100000
+    },
+    {
+      "_id": "2",
+      "conversationId": "1",
+      "senderId": "external_001",
+      "senderNickname": "John Doe",
+      "receiverTypeId": "1",
+      "receiverId": "user_001",
+      "msgType": "text",
+      "msgContent": "I'm fine, thank you!",
+      "msgAttachments": [],
+      "sendTime": 1736349200000,
+      "isRead": true,
+      "readTime": 1736349300000,
+      "isRecall": false,
+      "recallTime": null,
+      "deviceId": "device_002",
+      "ipId": "ip_002",
+      "createdAt": 1736349200000,
+      "updatedAt": 1736349300000
+    },
+    {
+      "_id": "3",
+      "conversationId": "2",
+      "senderId": "user_002",
+      "senderNickname": "Support",
+      "receiverTypeId": "2",
+      "receiverId": "external_002",
+      "msgType": "file",
+      "msgContent": "Please check the attached document",
+      "msgAttachments": [
+        {
+          "type": "pdf",
+          "name": "document.pdf",
+          "url": "https://example.com/document.pdf",
+          "size": 1024000
+        }
+      ],
+      "sendTime": 1736345400000,
+      "isRead": false,
+      "readTime": null,
+      "isRecall": false,
+      "recallTime": null,
+      "deviceId": "device_003",
+      "ipId": "ip_003",
+      "createdAt": 1736345400000,
+      "updatedAt": 1736345400000
+    },
+    {
+      "_id": "4",
+      "conversationId": "3",
+      "senderId": "external_003",
+      "senderNickname": "Mike Johnson",
+      "receiverTypeId": "1",
+      "receiverId": "user_001",
+      "msgType": "text",
+      "msgContent": "This message has been recalled",
+      "msgAttachments": [],
+      "sendTime": 1736341800000,
+      "isRead": false,
+      "readTime": null,
+      "isRecall": true,
+      "recallTime": 1736341900000,
+      "deviceId": "device_004",
+      "ipId": "ip_004",
+      "createdAt": 1736341800000,
+      "updatedAt": 1736341900000
+    }
+  ]
+  

@@ -1,0 +1,39 @@
+
+  {
+    "name": "users",
+    "title": "用户账号",
+    "schemas": [
+      {
+        "name": "username",
+        "title": "用户名",
+        "type": "String"
+      },
+      {
+        "name": "password",
+        "title": "密码",
+        "type": "String"
+      },
+      {
+        "name": "role",
+        "title": "角色",
+        "type": "String"
+      },
+      {
+        "name": "status",
+        "title": "状态",
+        "type": "String"
+      },
+      {
+        "name": "lastLogin",
+        "title": "最后登录时间",
+        "type": "DateTime",
+        "format": "timestamp-ms"
+      },
+      {
+        "name": "language",
+        "title": "首选语言",
+        "type": "String"
+      }
+    ]
+  }
+  

@@ -1,0 +1,23 @@
+
+  {
+    "name": "chat_target_types",
+    "title": "聊天目标类型",
+    "schemas": [
+      {
+        "name": "typeCode",
+        "title": "类型代码",
+        "type": "String"
+      },
+      {
+        "name": "typeName",
+        "title": "类型名称",
+        "type": "String"
+      },
+      {
+        "name": "status",
+        "title": "状态",
+        "type": "String"
+      }
+    ]
+  }
+  

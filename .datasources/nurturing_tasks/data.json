@@ -1,0 +1,52 @@
+
+  [
+    {
+      "_id": "1",
+      "account": "legal_us_account_001",
+      "platform": "Facebook",
+      "taskType": "publish_post",
+      "taskContent": "Hello World! This is a test post.",
+      "scheduledTime": 1736373600000,
+      "status": "pending",
+      "device": "iPhone 15 Pro",
+      "ip": "192.168.1.100",
+      "retryCount": 3,
+      "executedTime": null,
+      "errorMessage": null,
+      "createdAt": 1731312000000,
+      "updatedAt": 1731312000000
+    },
+    {
+      "_id": "2",
+      "account": "uk_business_002",
+      "platform": "Twitter",
+      "taskType": "like",
+      "taskContent": "Like posts from @official_account",
+      "scheduledTime": 1736371800000,
+      "status": "completed",
+      "device": "Samsung Galaxy S24",
+      "ip": "192.168.1.101",
+      "retryCount": 3,
+      "executedTime": 1736371900000,
+      "errorMessage": null,
+      "createdAt": 1731312000000,
+      "updatedAt": 1731312000000
+    },
+    {
+      "_id": "3",
+      "account": "jp_creator_003",
+      "platform": "Instagram",
+      "taskType": "comment",
+      "taskContent": "Comment on trending posts",
+      "scheduledTime": 1736366400000,
+      "status": "failed",
+      "device": "iPhone 14",
+      "ip": "192.168.1.102",
+      "retryCount": 3,
+      "executedTime": 1736366500000,
+      "errorMessage": "Account temporarily restricted",
+      "createdAt": 1731312000000,
+      "updatedAt": 1731312000000
+    }
+  ]
+  

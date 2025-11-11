@@ -1,0 +1,49 @@
+
+  [
+    {
+      "_id": "1",
+      "conversationNo": "CONV_20250107_001",
+      "initiatorId": "user_001",
+      "targetTypeId": "2",
+      "targetId": "external_001",
+      "targetPlatformId": "3",
+      "targetNickname": "John Doe",
+      "lastMsgContent": "Hello, how are you?",
+      "lastMsgTime": 1736349000000,
+      "unreadCount": 2,
+      "status": "active",
+      "createdAt": 1731312000000,
+      "updatedAt": 1736349000000
+    },
+    {
+      "_id": "2",
+      "conversationNo": "CONV_20250107_002",
+      "initiatorId": "user_002",
+      "targetTypeId": "2",
+      "targetId": "external_002",
+      "targetPlatformId": "4",
+      "targetNickname": "Jane Smith",
+      "lastMsgContent": "Thanks for your help!",
+      "lastMsgTime": 1736345400000,
+      "unreadCount": 0,
+      "status": "active",
+      "createdAt": 1731312000000,
+      "updatedAt": 1736345400000
+    },
+    {
+      "_id": "3",
+      "conversationNo": "CONV_20250107_003",
+      "initiatorId": "user_001",
+      "targetTypeId": "2",
+      "targetId": "external_003",
+      "targetPlatformId": "5",
+      "targetNickname": "Mike Johnson",
+      "lastMsgContent": "See you tomorrow!",
+      "lastMsgTime": 1736341800000,
+      "unreadCount": 1,
+      "status": "archived",
+      "createdAt": 1731312000000,
+      "updatedAt": 1736341800000
+    }
+  ]
+  

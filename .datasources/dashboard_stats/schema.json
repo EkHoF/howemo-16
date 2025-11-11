@@ -1,0 +1,73 @@
+
+  {
+    "name": "dashboard_stats",
+    "title": "仪表板统计",
+    "schemas": [
+      {
+        "name": "date",
+        "title": "统计日期",
+        "type": "Date",
+        "format": "date"
+      },
+      {
+        "name": "timeRange",
+        "title": "时间范围",
+        "type": "String"
+      },
+      {
+        "name": "totalAccounts",
+        "title": "总账号数",
+        "type": "Number"
+      },
+      {
+        "name": "activeAccounts",
+        "title": "活跃账号数",
+        "type": "Number"
+      },
+      {
+        "name": "todayTasks",
+        "title": "今日任务数",
+        "type": "Number"
+      },
+      {
+        "name": "successTasks",
+        "title": "成功任务数",
+        "type": "Number"
+      },
+      {
+        "name": "riskTriggers",
+        "title": "风控触发数",
+        "type": "Number"
+      },
+      {
+        "name": "todayPayments",
+        "title": "今日支付金额",
+        "type": "Number"
+      },
+      {
+        "name": "activityTrend",
+        "title": "账号活跃度趋势",
+        "type": "Array",
+        "items": {
+          "type": "Object"
+        }
+      },
+      {
+        "name": "taskEfficiency",
+        "title": "任务执行效率",
+        "type": "Array",
+        "items": {
+          "type": "Object"
+        }
+      },
+      {
+        "name": "topRiskTriggers",
+        "title": "风控触发TOP5",
+        "type": "Array",
+        "items": {
+          "type": "Object"
+        }
+      }
+    ]
+  }
+  

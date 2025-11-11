@@ -1,0 +1,46 @@
+
+  [
+    {
+      "_id": "1",
+      "ruleCode": "IP_CHANGE_FREQUENT",
+      "ruleName": "IP Frequent Change",
+      "ruleDesc": "Trigger when IP changes more than 3 times in 24 hours",
+      "threshold": {
+        "max_ip_change": 3,
+        "time_window": 24
+      },
+      "action": "alert",
+      "status": "enabled",
+      "createdAt": 1731312000000,
+      "updatedAt": 1731312000000
+    },
+    {
+      "_id": "2",
+      "ruleCode": "DEVICE_CHANGE",
+      "ruleName": "Device Change",
+      "ruleDesc": "Trigger when device changes more than 2 times in 24 hours",
+      "threshold": {
+        "max_device_change": 2,
+        "time_window": 24
+      },
+      "action": "restrict_login",
+      "status": "enabled",
+      "createdAt": 1731312000000,
+      "updatedAt": 1731312000000
+    },
+    {
+      "_id": "3",
+      "ruleCode": "UNUSUAL_LOGIN",
+      "ruleName": "Unusual Login Pattern",
+      "ruleDesc": "Trigger when login from unusual location or time",
+      "threshold": {
+        "location_anomaly": true,
+        "time_anomaly": true
+      },
+      "action": "alert",
+      "status": "disabled",
+      "createdAt": 1731312000000,
+      "updatedAt": 1731312000000
+    }
+  ]
+  

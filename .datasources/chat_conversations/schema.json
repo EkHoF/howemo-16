@@ -1,0 +1,59 @@
+
+  {
+    "name": "chat_conversations",
+    "title": "聊天会话",
+    "schemas": [
+      {
+        "name": "conversationNo",
+        "title": "会话编号",
+        "type": "String"
+      },
+      {
+        "name": "initiatorId",
+        "title": "发起人ID",
+        "type": "String"
+      },
+      {
+        "name": "targetTypeId",
+        "title": "目标类型ID",
+        "type": "String"
+      },
+      {
+        "name": "targetId",
+        "title": "目标ID",
+        "type": "String"
+      },
+      {
+        "name": "targetPlatformId",
+        "title": "目标平台ID",
+        "type": "String"
+      },
+      {
+        "name": "targetNickname",
+        "title": "目标昵称",
+        "type": "String"
+      },
+      {
+        "name": "lastMsgContent",
+        "title": "最后消息内容",
+        "type": "String"
+      },
+      {
+        "name": "lastMsgTime",
+        "title": "最后消息时间",
+        "type": "DateTime",
+        "format": "timestamp-ms"
+      },
+      {
+        "name": "unreadCount",
+        "title": "未读数量",
+        "type": "Number"
+      },
+      {
+        "name": "status",
+        "title": "状态",
+        "type": "String"
+      }
+    ]
+  }
+  

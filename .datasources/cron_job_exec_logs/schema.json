@@ -1,0 +1,54 @@
+
+  {
+    "name": "cron_job_exec_logs",
+    "title": "定时任务执行日志",
+    "schemas": [
+      {
+        "name": "jobId",
+        "title": "任务ID",
+        "type": "String"
+      },
+      {
+        "name": "jobCode",
+        "title": "任务代码",
+        "type": "String"
+      },
+      {
+        "name": "executeTime",
+        "title": "执行时间",
+        "type": "DateTime",
+        "format": "timestamp-ms"
+      },
+      {
+        "name": "executeDuration",
+        "title": "执行时长",
+        "type": "Number"
+      },
+      {
+        "name": "executeStatus",
+        "title": "执行状态",
+        "type": "String"
+      },
+      {
+        "name": "retryCount",
+        "title": "重试次数",
+        "type": "Number"
+      },
+      {
+        "name": "errorMsg",
+        "title": "错误信息",
+        "type": "String"
+      },
+      {
+        "name": "executeResult",
+        "title": "执行结果",
+        "type": "Object"
+      },
+      {
+        "name": "executeNode",
+        "title": "执行节点",
+        "type": "String"
+      }
+    ]
+  }
+  

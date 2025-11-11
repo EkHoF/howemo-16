@@ -1,0 +1,89 @@
+
+  {
+    "name": "chat_messages",
+    "title": "聊天消息",
+    "schemas": [
+      {
+        "name": "conversationId",
+        "title": "会话ID",
+        "type": "String"
+      },
+      {
+        "name": "senderId",
+        "title": "发送者ID",
+        "type": "String"
+      },
+      {
+        "name": "senderNickname",
+        "title": "发送者昵称",
+        "type": "String"
+      },
+      {
+        "name": "receiverTypeId",
+        "title": "接收者类型ID",
+        "type": "String"
+      },
+      {
+        "name": "receiverId",
+        "title": "接收者ID",
+        "type": "String"
+      },
+      {
+        "name": "msgType",
+        "title": "消息类型",
+        "type": "String"
+      },
+      {
+        "name": "msgContent",
+        "title": "消息内容",
+        "type": "String"
+      },
+      {
+        "name": "msgAttachments",
+        "title": "消息附件",
+        "type": "Array",
+        "items": {
+          "type": "Object"
+        }
+      },
+      {
+        "name": "sendTime",
+        "title": "发送时间",
+        "type": "DateTime",
+        "format": "timestamp-ms"
+      },
+      {
+        "name": "isRead",
+        "title": "是否已读",
+        "type": "Boolean"
+      },
+      {
+        "name": "readTime",
+        "title": "阅读时间",
+        "type": "DateTime",
+        "format": "timestamp-ms"
+      },
+      {
+        "name": "isRecall",
+        "title": "是否撤回",
+        "type": "Boolean"
+      },
+      {
+        "name": "recallTime",
+        "title": "撤回时间",
+        "type": "DateTime",
+        "format": "timestamp-ms"
+      },
+      {
+        "name": "deviceId",
+        "title": "设备ID",
+        "type": "String"
+      },
+      {
+        "name": "ipId",
+        "title": "IP ID",
+        "type": "String"
+      }
+    ]
+  }
+  

@@ -1,0 +1,52 @@
+
+  [
+    {
+      "_id": "1",
+      "typeCode": "INTERNAL_ACCOUNT",
+      "typeName": "内部账号",
+      "status": "active",
+      "createdAt": 1731312000000,
+      "updatedAt": 1731312000000
+    },
+    {
+      "_id": "2",
+      "typeCode": "EXTERNAL_ACCOUNT",
+      "typeName": "外部账号",
+      "status": "active",
+      "createdAt": 1731312000000,
+      "updatedAt": 1731312000000
+    },
+    {
+      "_id": "3",
+      "typeCode": "FACEBOOK",
+      "typeName": "Facebook",
+      "status": "active",
+      "createdAt": 1731312000000,
+      "updatedAt": 1731312000000
+    },
+    {
+      "_id": "4",
+      "typeCode": "TWITTER",
+      "typeName": "Twitter",
+      "status": "active",
+      "createdAt": 1731312000000,
+      "updatedAt": 1731312000000
+    },
+    {
+      "_id": "5",
+      "typeCode": "INSTAGRAM",
+      "typeName": "Instagram",
+      "status": "active",
+      "createdAt": 1731312000000,
+      "updatedAt": 1731312000000
+    },
+    {
+      "_id": "6",
+      "typeCode": "LINKEDIN",
+      "typeName": "LinkedIn",
+      "status": "active",
+      "createdAt": 1731312000000,
+      "updatedAt": 1731312000000
+    }
+  ]
+  
