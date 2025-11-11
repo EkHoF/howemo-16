@@ -8,7 +8,7 @@ exports.main = async (event, context) => {
   try {
     // 初始化云开发
     const app = tcb.init({
-      env: context.TCB_ENV || process.env.TCB_ENV
+      env: context.TCB_ENV || process.env.TCB_ENV || 'default'
     });
     
     const db = app.database();
