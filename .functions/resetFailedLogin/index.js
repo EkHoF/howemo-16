@@ -2,10 +2,16 @@
 // 云函数：重置登录失败记录
 // 功能：重置指定IP的登录失败计数（登录成功时调用）
 
+const tcb = require('@cloudbase/node-sdk');
+
 exports.main = async (event, context) => {
   try {
-    // 使用原生云开发API
-    const db = cloud.database();
+    // 初始化云开发
+    const app = tcb.init({
+      env: context.TCB_ENV || process.env.TCB_ENV
+    });
+    
+    const db = app.database();
     
     // 优先使用前端传递的IP，如果没有则尝试从请求头获取
     const clientIP = event.clientIP || 

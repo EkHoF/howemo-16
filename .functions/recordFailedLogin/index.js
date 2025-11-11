@@ -2,10 +2,16 @@
 // 云函数：记录登录失败
 // 功能：记录指定IP的登录失败尝试，当达到阈值时锁定该IP
 
+const tcb = require('@cloudbase/node-sdk');
+
 exports.main = async (event, context) => {
   try {
-    // 使用原生云开发API
-    const db = cloud.database();
+    // 初始化云开发
+    const app = tcb.init({
+      env: context.TCB_ENV || process.env.TCB_ENV
+    });
+    
+    const db = app.database();
     
     // 配置参数
     const MAX_FAILED_ATTEMPTS = 5; // 最大失败次数
