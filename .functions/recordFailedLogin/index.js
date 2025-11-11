@@ -8,7 +8,7 @@ exports.main = async (event, context) => {
   try {
     // 初始化云开发
     const app = tcb.init({
-      env: context.TCB_ENV || process.env.TCB_ENV
+      env: context.TCB_ENV || process.env.TCB_ENV || 'default'
     });
     
     const db = app.database();
@@ -88,17 +88,22 @@ exports.main = async (event, context) => {
     }
     
     // 记录安全日志
-    await db.collection('security_logs')
-      .add({
-        event_type: 'login_failed',
-        ip_address: clientIP,
-        username: username,
-        timestamp: timestamp,
-        failed_count: newFailedCount,
-        is_locked: isLocked,
-        user_agent: userAgent,
-        created_at: timestamp
-      });
+    try {
+      await db.collection('security_logs')
+        .add({
+          event_type: 'login_failed',
+          ip_address: clientIP,
+          username: username,
+          timestamp: timestamp,
+          failed_count: newFailedCount,
+          is_locked: isLocked,
+          user_agent: userAgent,
+          created_at: timestamp
+        });
+    } catch (logError) {
+      console.error('记录安全日志失败:', logError);
+      // 不影响主流程，继续执行
+    }
     
     console.log(`IP ${clientIP} 登录失败记录已更新，当前失败次数: ${newFailedCount}`);
     
