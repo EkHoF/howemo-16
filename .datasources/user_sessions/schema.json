@@ -1,0 +1,61 @@
+
+{
+  "type": "object",
+  "properties": {
+    "_id": {
+      "type": "string",
+      "description": "会话唯一标识"
+    },
+    "username": {
+      "type": "string",
+      "description": "用户名"
+    },
+    "ip_address": {
+      "type": "string",
+      "description": "IP地址"
+    },
+    "login_time": {
+      "type": "number",
+      "description": "登录时间戳"
+    },
+    "logout_time": {
+      "type": "number",
+      "description": "退出登录时间戳"
+    },
+    "session_status": {
+      "type": "string",
+      "description": "会话状态：active, ended, expired"
+    },
+    "user_agent": {
+      "type": "string",
+      "description": "用户代理字符串"
+    },
+    "created_at": {
+      "type": "number",
+      "description": "创建时间戳"
+    },
+    "updated_at": {
+      "type": "number",
+      "description": "更新时间戳"
+    }
+  },
+  "required": ["username", "ip_address", "login_time", "session_status"],
+  "indexes": [
+    {
+      "name": "idx_username",
+      "fields": ["username"]
+    },
+    {
+      "name": "idx_ip_address",
+      "fields": ["ip_address"]
+    },
+    {
+      "name": "idx_session_status",
+      "fields": ["session_status"]
+    },
+    {
+      "name": "idx_login_time",
+      "fields": ["login_time"]
+    }
+  ]
+}

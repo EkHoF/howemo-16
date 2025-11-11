@@ -38,6 +38,28 @@ export default function LoginPage(props) {
     name: '日本語'
   }];
 
+  // 清除所有认证相关的存储
+  const clearAuthStorage = () => {
+    // 清除localStorage中的认证信息
+    localStorage.removeItem('authToken');
+    localStorage.removeItem('userInfo');
+    localStorage.removeItem('userRole');
+    localStorage.removeItem('loginTime');
+    localStorage.removeItem('selectedLanguage');
+    localStorage.removeItem('login_attempts_backup');
+
+    // 清除sessionStorage
+    sessionStorage.clear();
+
+    // 清除所有cookie
+    document.cookie.split(";").forEach(cookie => {
+      const eqPos = cookie.indexOf("=");
+      const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+      document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;domain=" + window.location.hostname;
+      document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;";
+    });
+  };
+
   // 从后端获取客户端IP和登录状态
   const getLoginStatusFromBackend = async () => {
     try {
@@ -261,6 +283,8 @@ export default function LoginPage(props) {
 
   // 初始化时检查锁定状态和语言设置
   useEffect(() => {
+    // 清除之前的认证信息
+    clearAuthStorage();
     const savedLanguage = localStorage.getItem('selectedLanguage') || 'zh-CN';
     setSelectedLanguage(savedLanguage);
     checkIPLockStatus();
@@ -319,6 +343,19 @@ export default function LoginPage(props) {
         setFailedAttempts(0);
         setIsIPLocked(false);
         setLockTimeRemaining(0);
+
+        // 保存登录信息到localStorage
+        const loginTime = Date.now();
+        const authToken = btoa(`${formData.username}:${loginTime}:${Math.random()}`);
+        localStorage.setItem('authToken', authToken);
+        localStorage.setItem('userInfo', JSON.stringify({
+          username: formData.username,
+          role: user.role,
+          loginTime: loginTime
+        }));
+        localStorage.setItem('userRole', user.role);
+        localStorage.setItem('loginTime', loginTime.toString());
+        localStorage.setItem('selectedLanguage', selectedLanguage);
         toast({
           title: getText('loginSuccess'),
           description: `${getText('welcomeBack')}, ${formData.username}!`
