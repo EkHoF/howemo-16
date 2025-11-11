@@ -1,57 +1,45 @@
 
-<copilotAction type="generate" filePath=".datasources/security_logs/schema.json" status="done" {
-  "type": "object",
-  "properties": {
-    "_id": {
-      "type": "string",
-      "description": "日志唯一标识"
-    },
-    "event_type": {
-      "type": "string",
-      "description": "事件类型：login_failed, login_success_reset, ip_blocked, ip_unblocked"
-    },
-    "ip_address": {
-      "type": "string",
-      "description": "IP地址"
-    },
-    "username": {
-      "type": "string",
-      "description": "用户名"
-    },
-    "timestamp": {
-      "type": "number",
-      "description": "事件时间戳"
-    },
-    "failed_count": {
-      "type": "number",
-      "description": "失败次数"
-    },
-    "is_locked": {
-      "type": "boolean",
-      "description": "是否被锁定"
-    },
-    "user_agent": {
-      "type": "string",
-      "description": "用户代理字符串"
-    },
-    "created_at": {
-      "type": "number",
-      "description": "创建时间戳"
-    }
-  },
-  "required": ["event_type", "ip_address", "timestamp"],
-  "indexes": [
-    {
-      "name": "idx_event_type",
-      "fields": ["event_type"]
-    },
-    {
-      "name": "idx_ip_address",
-      "fields": ["ip_address"]
-    },
-    {
-      "name": "idx_timestamp",
-      "fields": ["timestamp"]
-    }
-  ]
-}
+  {
+    "name": "ip_login_attempts",
+    "title": "IP登录尝试记录",
+    "schemas": [
+      {
+        "name": "ipAddress",
+        "title": "IP地址",
+        "type": "String"
+      },
+      {
+        "name": "username",
+        "title": "用户名",
+        "type": "String"
+      },
+      {
+        "name": "attemptTime",
+        "title": "尝试时间",
+        "type": "DateTime",
+        "format": "timestamp-ms"
+      },
+      {
+        "name": "attemptCount",
+        "title": "尝试次数",
+        "type": "Number"
+      },
+      {
+        "name": "isBlocked",
+        "title": "是否被阻止",
+        "type": "Boolean"
+      },
+      {
+        "name": "userAgent",
+        "title": "用户代理",
+        "type": "String"
+      },
+      {
+        "name": "blockUntil",
+        "title": "阻止到期时间",
+        "type": "DateTime",
+        "format": "timestamp-ms"
+      }
+    ]
+  }
+  

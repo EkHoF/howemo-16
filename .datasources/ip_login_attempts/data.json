@@ -1,0 +1,40 @@
+
+  [
+    {
+      "_id": "1",
+      "ipAddress": "192.168.1.100",
+      "username": "admin",
+      "attemptTime": 1736349000000,
+      "attemptCount": 3,
+      "isBlocked": true,
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+      "blockUntil": 1736352600000,
+      "createdAt": 1736349000000,
+      "updatedAt": 1736349000000
+    },
+    {
+      "_id": "2",
+      "ipAddress": "10.0.0.50",
+      "username": "user001",
+      "attemptTime": 1736347200000,
+      "attemptCount": 1,
+      "isBlocked": false,
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
+      "blockUntil": null,
+      "createdAt": 1736347200000,
+      "updatedAt": 1736347200000
+    },
+    {
+      "_id": "3",
+      "ipAddress": "172.16.0.25",
+      "username": "test",
+      "attemptTime": 1736345400000,
+      "attemptCount": 5,
+      "isBlocked": true,
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36",
+      "blockUntil": 1736356200000,
+      "createdAt": 1736345400000,
+      "updatedAt": 1736345400000
+    }
+  ]
+  
