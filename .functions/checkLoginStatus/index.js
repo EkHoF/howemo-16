@@ -13,17 +13,17 @@ exports.main = async (event, context) => {
     
     const db = app.database();
     
-    // 获取客户端IP（优先使用传入的IP，否则从请求头获取）
+    // 优先使用前端传递的IP，如果没有则尝试从请求头获取
     const clientIP = event.clientIP || 
                      context.clientIP || 
                      event.headers?.['x-forwarded-for']?.split(',')[0] || 
                      event.headers?.['x-real-ip'] || 
-                     event.requestContext?.clientIP ||
+                     event.headers?.['x-client-ip'] ||
                      '127.0.0.1';
     
-    console.log('检查登录状态 - 客户端IP:', clientIP);
-    
     const now = Date.now();
+    
+    console.log('检查登录状态 - 客户端IP:', clientIP);
     
     // 查询该IP的登录失败记录
     const result = await db.collection('ip_login_attempts')
@@ -62,10 +62,10 @@ exports.main = async (event, context) => {
           });
       } else {
         loginStatus.failedAttempts = record.failed_count || 0;
-        console.log(`IP ${clientIP} 失败次数: ${loginStatus.failedAttempts}`);
+        console.log(`IP ${clientIP} 当前失败次数: ${loginStatus.failedAttempts}`);
       }
     } else {
-      console.log(`IP ${clientIP} 无失败记录`);
+      console.log(`IP ${clientIP} 无登录失败记录`);
     }
     
     return {

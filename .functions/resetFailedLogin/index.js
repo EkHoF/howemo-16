@@ -13,17 +13,18 @@ exports.main = async (event, context) => {
     
     const db = app.database();
     
-    // 获取客户端IP（优先使用传入的IP，否则从请求头获取）
+    // 优先使用前端传递的IP，如果没有则尝试从请求头获取
     const clientIP = event.clientIP || 
                      context.clientIP || 
                      event.headers?.['x-forwarded-for']?.split(',')[0] || 
                      event.headers?.['x-real-ip'] || 
-                     event.requestContext?.clientIP ||
+                     event.headers?.['x-client-ip'] ||
                      '127.0.0.1';
     
     const timestamp = Date.now();
+    const userAgent = event.userAgent || context.userAgent || 'unknown';
     
-    console.log(`重置登录失败记录 - IP: ${clientIP}, 时间戳: ${timestamp}`);
+    console.log('重置登录失败记录 - 客户端IP:', clientIP);
     
     // 重置该IP的失败计数
     const updateResult = await db.collection('ip_login_attempts')
@@ -38,17 +39,17 @@ exports.main = async (event, context) => {
         updated_at: timestamp
       });
     
-    console.log(`IP ${clientIP} 重置结果:`, updateResult);
-    
     // 记录安全日志
     await db.collection('security_logs')
       .add({
         event_type: 'login_success_reset',
         ip_address: clientIP,
         timestamp: timestamp,
-        user_agent: event.userAgent || context.userAgent || 'unknown',
+        user_agent: userAgent,
         created_at: timestamp
       });
+    
+    console.log(`IP ${clientIP} 登录失败记录已重置`);
     
     return {
       success: true,

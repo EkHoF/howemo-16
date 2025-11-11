@@ -22,7 +22,7 @@ export default function LoginPage(props) {
   const [isIPLocked, setIsIPLocked] = useState(false);
   const [lockTimeRemaining, setLockTimeRemaining] = useState(0);
   const [failedAttempts, setFailedAttempts] = useState(0);
-  const [clientIP, setClientIP] = useState('');
+  const [clientIP, setClientIP] = useState('127.0.0.1');
 
   // 登录限制配置
   const MAX_FAILED_ATTEMPTS = 5; // 最大失败次数
@@ -39,6 +39,32 @@ export default function LoginPage(props) {
     name: '日本語'
   }];
 
+  // 获取客户端真实IP
+  const getClientRealIP = async () => {
+    try {
+      // 使用第三方IP查询服务获取真实IP
+      const response = await fetch('https://api.ipify.org?format=json');
+      const data = await response.json();
+      return data.ip || '127.0.0.1';
+    } catch (error) {
+      console.error('获取真实IP失败:', error);
+      // 备用方案：使用本地存储的IP或生成一个稳定的IP
+      const storedIP = localStorage.getItem('clientRealIP');
+      if (storedIP) {
+        return storedIP;
+      }
+      // 生成一个基于浏览器指纹的稳定IP（模拟）
+      const fingerprint = navigator.userAgent + navigator.language + screen.width + screen.height;
+      const hash = fingerprint.split('').reduce((a, b) => {
+        a = (a << 5) - a + b.charCodeAt(0);
+        return a & a;
+      }, 0);
+      const simulatedIP = `192.168.${Math.abs(hash % 254) + 1}.${Math.abs((hash >> 8) % 254) + 1}`;
+      localStorage.setItem('clientRealIP', simulatedIP);
+      return simulatedIP;
+    }
+  };
+
   // 清除所有认证相关的存储
   const clearAuthStorage = () => {
     // 清除localStorage中的认证信息
@@ -48,7 +74,6 @@ export default function LoginPage(props) {
     localStorage.removeItem('loginTime');
     localStorage.removeItem('selectedLanguage');
     localStorage.removeItem('login_attempts_backup');
-    localStorage.removeItem('clientIP');
 
     // 清除sessionStorage
     sessionStorage.clear();
@@ -62,29 +87,14 @@ export default function LoginPage(props) {
     });
   };
 
-  // 获取客户端IP（通过云函数获取真实IP）
-  const getClientIP = async () => {
-    try {
-      const response = await $w.cloud.callFunction({
-        name: 'getClientIP',
-        data: {}
-      });
-      return response.result?.ip || '127.0.0.1';
-    } catch (error) {
-      console.error('获取客户端IP失败:', error);
-      return '127.0.0.1';
-    }
-  };
-
   // 从后端获取客户端IP和登录状态
   const getLoginStatusFromBackend = async () => {
     try {
-      const ip = await getClientIP();
-      setClientIP(ip);
       const response = await $w.cloud.callFunction({
         name: 'checkLoginStatus',
         data: {
-          clientIP: ip
+          clientIP: clientIP,
+          userAgent: navigator.userAgent
         }
       });
       return response.result;
@@ -95,7 +105,7 @@ export default function LoginPage(props) {
         isLocked: false,
         lockTimeRemaining: 0,
         failedAttempts: 0,
-        clientIP: clientIP || '127.0.0.1'
+        clientIP: clientIP
       };
     }
   };
@@ -103,13 +113,13 @@ export default function LoginPage(props) {
   // 记录登录失败到后端
   const recordFailedLoginToBackend = async username => {
     try {
-      const ip = await getClientIP();
       const response = await $w.cloud.callFunction({
         name: 'recordFailedLogin',
         data: {
           username: username,
           timestamp: Date.now(),
-          clientIP: ip
+          clientIP: clientIP,
+          userAgent: navigator.userAgent
         }
       });
       return response.result;
@@ -130,11 +140,11 @@ export default function LoginPage(props) {
   // 重置登录失败记录到后端
   const resetFailedLoginToBackend = async () => {
     try {
-      const ip = await getClientIP();
       const response = await $w.cloud.callFunction({
         name: 'resetFailedLogin',
         data: {
-          clientIP: ip
+          clientIP: clientIP,
+          userAgent: navigator.userAgent
         }
       });
       return response.result;
@@ -306,13 +316,22 @@ export default function LoginPage(props) {
     return () => clearInterval(checkInterval);
   }, [isIPLocked]);
 
-  // 初始化时检查锁定状态和语言设置
+  // 初始化时获取IP、检查锁定状态和语言设置
   useEffect(() => {
-    // 清除之前的认证信息
-    clearAuthStorage();
-    const savedLanguage = localStorage.getItem('selectedLanguage') || 'zh-CN';
-    setSelectedLanguage(savedLanguage);
-    checkIPLockStatus();
+    const initializePage = async () => {
+      // 清除之前的认证信息
+      clearAuthStorage();
+
+      // 获取客户端真实IP
+      const ip = await getClientRealIP();
+      setClientIP(ip);
+      const savedLanguage = localStorage.getItem('selectedLanguage') || 'zh-CN';
+      setSelectedLanguage(savedLanguage);
+
+      // 检查IP锁定状态
+      await checkIPLockStatus();
+    };
+    initializePage();
   }, []);
   const handleInputChange = (field, value) => {
     setFormData(prev => ({
@@ -376,12 +395,13 @@ export default function LoginPage(props) {
         localStorage.setItem('userInfo', JSON.stringify({
           username: formData.username,
           role: user.role,
-          loginTime: loginTime
+          loginTime: loginTime,
+          clientIP: clientIP
         }));
         localStorage.setItem('userRole', user.role);
         localStorage.setItem('loginTime', loginTime.toString());
         localStorage.setItem('selectedLanguage', selectedLanguage);
-        localStorage.setItem('clientIP', clientIP);
+        localStorage.setItem('clientRealIP', clientIP);
         toast({
           title: getText('loginSuccess'),
           description: `${getText('welcomeBack')}, ${formData.username}!`
@@ -462,6 +482,9 @@ export default function LoginPage(props) {
                 </div>
                 <div className="text-amber-700">
                   {getText('ipRestriction')}
+                </div>
+                <div className="text-amber-600 text-xs mt-1">
+                  当前IP: {clientIP}
                 </div>
               </div>
 
